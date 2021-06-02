@@ -68,3 +68,22 @@ html.addEventListener("keypress",function jump()
        jumpcount++;
     },10);
 });
+html.addEventListener('touchstart',function jump()
+{
+    jumping=1;
+    let jumpcount=0;
+    var jumpinterval=setInterval(function(){
+        var charactertop=parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+        
+       if((charactertop>6)&&(jumpcount<15 ))
+       {
+        character.style.top=(charactertop-5)+"px";
+       }
+       if(jumpcount>20)
+       {clearInterval(jumpinterval);
+       jumping=0;
+       jumpcount=0;
+       }
+       jumpcount++;
+    },10);
+});
